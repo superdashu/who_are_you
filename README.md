@@ -20,6 +20,7 @@ $ cd who_are_you
 ```shell
 $ pip install requests
 $ pip install js2py
+$ pip install pyexecjs
 ```
 
 ### 使用
