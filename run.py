@@ -8,7 +8,7 @@ def usePlugin(name, args):
     plugin = __import__('plugins.' + name, fromlist=[name])
 
     if not plugin.enable:
-        return False, '插件未启用'
+        return plugin.name, False, '插件未启用'
     
     isSuccess, e = plugin.instance().execute(args)
     return plugin.name, isSuccess, e
@@ -41,7 +41,6 @@ def main():
     for name in allPlugin:
         pluginName, isSuccess, e = usePlugin(name, args)
         print(pluginName, '执行成功' if isSuccess else '执行失败', e)
-        return
 
 
 if __name__ == '__main__':
